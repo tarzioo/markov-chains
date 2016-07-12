@@ -9,8 +9,11 @@ def open_and_read_file(file_path):
     """
 
     # your code goes here
+    v1 = open(file_path).read()
 
-    return "This should be a variable that contains your file text as one long string"
+    return v1
+
+    # return "This should be a variable that contains your file text as one long string"
 
 
 def make_chains(text_string):
@@ -25,7 +28,7 @@ def make_chains(text_string):
         >>> make_chains("hi there mary hi there juanita")
         {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
     """
-
+    # list1 = v1.split()
     chains = {}
 
     # your code goes here
