@@ -1,4 +1,6 @@
 from random import choice
+import sys
+
 
 def open_and_read_file(file_path):
     """Takes file path as string; returns text as string.
@@ -7,8 +9,8 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
 
-    # your code goes here
     file_string = open(file_path).read()
+    # file_string = sys.argv[1]
 
     return file_string
 
@@ -27,6 +29,7 @@ def make_chains(file_string):
         >>> make_chains("hi there mary hi there juanita")
         {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
     """
+
     list1 = file_string.split()
     chains = {}
 
@@ -56,7 +59,7 @@ def make_text(chains):
 
     return text
 
-input_path = "green-eggs.txt"
+input_path = "hakuna-matata.txt"
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
