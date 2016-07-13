@@ -36,7 +36,7 @@ def make_chains(file_string):
     for items in range(len(words) - 2):
         key = (words[items], words[items + 1])
         value = [words[items + 2]]
-        
+
         if chains.get(key):
             chains.get(key).extend(value)
 
@@ -50,7 +50,12 @@ def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
     random_key = choice(chains.keys())
+    
+    while random_key[0][0].isupper() == False:
+        random_key = choice(chains.keys())
+        
     text = "{} {} ".format(random_key[0], random_key[1])
+
 
     while random_key in chains:
         random_value = choice(chains[random_key])
@@ -58,6 +63,9 @@ def make_text(chains):
         text = text + "{} " .format(random_value)
 
     return text
+
+    # else:
+    #     make_text(chains)
 
 input_path = "hakuna-matata.txt"
 
@@ -99,3 +107,6 @@ print random_text
 # them, Sam - I
 # Sam I - am?
 # I am? - 
+
+
+# Why, when he was a young warthog Very nice, thanks He found his aroma lacked a certain appeal He could clear the Savannah after every meal I'm a sensitive soul, though I seem thick-skinned And it hurt that my loneliness Is killing me (and I) I must confess, I still believe (still believe) When I'm not with you I lose my mind Give me a sign Hit me, baby, 'Cause I need to know now, oh, because... Oh, baby, baby Oh, baby, baby How was I supposed to know? Oh, pretty, baby I shouldn't have let you go I must confess that my loneliness Is killing me now Don't you know I still believe That you will be here And give me a sign Hit me, baby, one more time. 
