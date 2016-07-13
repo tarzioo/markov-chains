@@ -1,6 +1,5 @@
 from random import choice
 
-
 def open_and_read_file(file_path):
     """Takes file path as string; returns text as string.
 
@@ -41,18 +40,21 @@ def make_chains(file_string):
         else:
             chains[key] = value
 
-    print chains
+    return chains
 
 
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
-    text = ""
+    random_key = choice(chains.keys())
+    text = "{} {} ".format(random_key[0], random_key[1])
 
-    # your code goes here
+    while random_key in chains:
+        random_value = choice(chains[random_key])
+        random_key = (random_key[1], random_value)
+        text = text + "{} " .format(random_value)
 
     return text
-
 
 input_path = "green-eggs.txt"
 
