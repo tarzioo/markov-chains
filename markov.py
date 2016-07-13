@@ -30,12 +30,12 @@ def make_chains(file_string):
         {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
     """
 
-    list1 = file_string.split()
+    words = file_string.split()
     chains = {}
 
-    for items in range(len(list1) - 2):
-        key = (list1[items], list1[items + 1])
-        value = [list1[items + 2]]
+    for items in range(len(words) - 2):
+        key = (words[items], words[items + 1])
+        value = [words[items + 2]]
         
         if chains.get(key):
             chains.get(key).extend(value)
